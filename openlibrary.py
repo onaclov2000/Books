@@ -3,7 +3,7 @@ import json
 
 def find_book_details(isbn):
 
-   response = urllib2.urlopen('http://openlibrary.org/search.json?isbn=' + isbn)
+   response = urllib2.urlopen('http://openlibrary.org/search.json?isbn=' + isbn.upper())
    data = json.load(response)
    docs = data["docs"]
    try:
@@ -23,7 +23,7 @@ def find_book_details(isbn):
       # for subject in docs[0]["subject"]:
          # print subject + ":",
    # except (KeyError, IndexError, UnicodeEncodeError): pass   
-   print "   \"isbn\" : \"" + isbn + "\""
+   print "   \"isbn\" : \"" + isbn.upper() + "\""
    
 
 isbns = ["0880382678",
